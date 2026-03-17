@@ -21,8 +21,6 @@ func FetchFiles(rawURL string, token string) ([]GithubFile, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	fmt.Printf("owner: %s | repo: %s | branch: %s | path: %s\n", owner, repo, branch, path)
 	return fetchDir(owner, repo, branch, path, token)
 }
 func fetchDir(owner, repo, branch, path, token string) ([]GithubFile, error) {

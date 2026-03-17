@@ -15,7 +15,7 @@ func main() {
 	args := flag.Args()
 
 	if len(args) < 1 {
-		fmt.Println("Usage: graft <github-url> [--token your_token]")
+		fmt.Println("Usage: reposnip <github-url> [--token your_token]")
 		os.Exit(1)
 	}
 
@@ -31,12 +31,13 @@ func main() {
 	for _, f := range files {
 		fmt.Println(" ", f.Path)
 	}
-	fmt.Println("\nDownloading....")
+
+	fmt.Println()
 	err = DownloadFiles(files, *token, *output)
 	if err != nil {
 		fmt.Println("Error:", err)
 		os.Exit(1)
 	}
-	fmt.Printf("\n Done! %d files(s) save.\n", len(files))
 
+	fmt.Printf("\n Done! %d file(s) downloaded.\n", len(files))
 }
